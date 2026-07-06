@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -16,12 +16,15 @@
 
   <header class="site-header">
     <nav class="nav" aria-label="Main">
-      <a class="nav-name" href="#top">Tanav Ravella</a>
+      <a class="nav-logo" href="#top">[tanav]</a>
       <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#writing">Writing</a>
+        <a href="#about">about</a>
+        <a href="#projects">projects</a>
+        <a href="#writing">writing</a>
       </div>
+      <button id="search-trigger" class="search-trigger" type="button" aria-haspopup="dialog" aria-controls="search-palette">
+        <span>Search</span> <kbd>&#8984;K</kbd>
+      </button>
     </nav>
   </header>
 
@@ -47,21 +50,31 @@
 
     <!-- ============ PROJECTS ============ -->
     <section id="projects" class="section">
-      <h2 class="section-label">Projects</h2>
+      <h2 class="section-title">Projects</h2>
+      <p class="section-subtitle">Things I've built — will grow as I ship more.</p>
       <ul id="project-list" class="row-list" aria-live="polite"></ul>
     </section>
 
     <!-- ============ WRITING ============ -->
     <section id="writing" class="section">
-      <h2 class="section-label">Writing</h2>
-      <ul id="post-list" class="row-list" aria-live="polite"></ul>
+      <h2 class="section-title">Writing</h2>
+      <p class="section-subtitle">Notes on math, CS, and whatever I'm learning at the moment.</p>
+      <p id="writing-meta" class="section-meta"></p>
+      <div id="writing-groups"></div>
     </section>
 
   </main>
 
   <footer class="site-footer">
-    <p>&copy; <span id="year"></span> Tanav Ravella</p>
+    <p>&copy; <span id="year"></span> Tanav Ravella &middot; Built with plain HTML, CSS, and JS</p>
   </footer>
+
+  <!-- ============ SEARCH PALETTE ============ -->
+  <div id="search-backdrop" class="search-backdrop" hidden></div>
+  <div id="search-palette" class="search-palette" role="dialog" aria-modal="true" aria-label="Search" hidden>
+    <input id="search-input" class="search-input" type="text" placeholder="Search sections, projects, writing..." autocomplete="off">
+    <ul id="search-results" class="search-results"></ul>
+  </div>
 
   <script src="../js/data.js"></script>
   <script src="js/main.js"></script>
