@@ -66,30 +66,6 @@ function renderProjects() {
   });
 }
 
-function renderExperience() {
-  const list = document.getElementById("experience-list");
-  if (!list) return;
-
-  if (!experiences.length) {
-    list.appendChild(el("li", "list-empty", "Nothing here yet."));
-    return;
-  }
-
-  experiences.forEach((x) => {
-    const li = el("li", "stack-item");
-
-    const head = el("div", "stack-head");
-    head.appendChild(el("h3", null, x.role));
-    if (x.dates) head.appendChild(el("span", "stack-meta", x.dates));
-    li.appendChild(head);
-
-    if (x.org) li.appendChild(el("p", "stack-sub", x.org));
-    if (x.description) li.appendChild(el("p", "stack-desc", x.description));
-
-    list.appendChild(li);
-  });
-}
-
 function renderPosts() {
   const list = document.getElementById("post-list");
   if (!list) return;
@@ -129,10 +105,13 @@ function renderPosts() {
   });
 }
 
-/* Highlight the nav link for the section currently in view */
+/* Highlight the nav link for the section currently in view.
+   Skips non-hash links (e.g. the mailto: contact entry). */
 function setupNavHighlight() {
-  const links = document.querySelectorAll(".nav-links a");
-  const sections = [...links].map((a) =>
+  const links = [...document.querySelectorAll(".nav-links a")].filter((a) =>
+    a.getAttribute("href").startsWith("#")
+  );
+  const sections = links.map((a) =>
     document.querySelector(a.getAttribute("href"))
   );
 
@@ -183,7 +162,6 @@ function setupThemeToggle() {
 
 document.getElementById("year").textContent = new Date().getFullYear();
 renderProjects();
-renderExperience();
 renderPosts();
 setupNavHighlight();
 setupThemeToggle();
