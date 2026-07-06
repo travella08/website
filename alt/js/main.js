@@ -1,9 +1,7 @@
 /* ============================================================
-   Content data lives in js/data.js (shared with alt/).
-   ============================================================ */
-
-/* ============================================================
-   Rendering — you shouldn't need to touch anything below.
+   Rendering for the alternate layout. Content comes from
+   ../js/data.js (shared with the main site) — edit that file,
+   not this one, to change projects or writing.
    ============================================================ */
 
 function el(tag, className, text) {
@@ -18,13 +16,14 @@ function renderProjects() {
   if (!list) return;
 
   if (!projects.length) {
-    list.appendChild(el("li", "posts-empty", "Nothing here yet."));
+    list.appendChild(el("li", "row-empty", "Nothing here yet."));
     return;
   }
 
   projects.forEach((p) => {
-    const li = el("li", "card");
+    const li = el("li", "row");
 
+    const head = el("div", "row-head");
     const h3 = el("h3");
     const mainLink = p.links && p.links[0];
     if (mainLink) {
@@ -36,15 +35,20 @@ function renderProjects() {
     } else {
       h3.textContent = p.title;
     }
-    li.appendChild(h3);
+    head.appendChild(h3);
+    if (p.year) head.appendChild(el("span", "row-meta", p.year));
+    li.appendChild(head);
 
-    li.appendChild(el("p", null, p.description));
+    li.appendChild(el("p", "row-desc", p.description));
 
-    const meta = el("div", "card-meta");
-    (p.tags || []).forEach((t) => meta.appendChild(el("span", "tag", t)));
+    if (p.tags && p.tags.length) {
+      const tags = el("div", "row-tags");
+      p.tags.forEach((t) => tags.appendChild(el("span", "tag", t)));
+      li.appendChild(tags);
+    }
 
     if (p.links && p.links.length) {
-      const links = el("div", "card-links");
+      const links = el("div", "row-links");
       p.links.forEach((l) => {
         const a = el("a", null, l.label);
         a.href = l.url;
@@ -52,10 +56,9 @@ function renderProjects() {
         a.rel = "noopener";
         links.appendChild(a);
       });
-      meta.appendChild(links);
+      li.appendChild(links);
     }
 
-    li.appendChild(meta);
     list.appendChild(li);
   });
 }
@@ -65,31 +68,32 @@ function renderPosts() {
   if (!list) return;
 
   if (!posts.length) {
-    list.appendChild(el("li", "posts-empty", "Nothing here yet — first post coming soon."));
+    list.appendChild(el("li", "row-empty", "Nothing here yet — first post coming soon."));
     return;
   }
 
-  // newest first
   const sorted = [...posts].sort((a, b) => b.date.localeCompare(a.date));
 
   sorted.forEach((p) => {
-    const li = el("li", "post");
+    const li = el("li", "row");
+
+    const head = el("div", "row-head");
+    const a = el("a", null, p.title);
+    a.href = p.url;
+    head.appendChild(a);
 
     const time = document.createElement("time");
+    time.className = "row-meta";
     time.dateTime = p.date;
     time.textContent = new Date(p.date + "T00:00:00").toLocaleDateString("en-US", {
       year: "numeric",
       month: "short",
       day: "numeric",
     });
-    li.appendChild(time);
+    head.appendChild(time);
+    li.appendChild(head);
 
-    const wrap = el("div");
-    const a = el("a", "post-title", p.title);
-    a.href = p.url;
-    wrap.appendChild(a);
-    if (p.summary) wrap.appendChild(el("span", "post-summary", p.summary));
-    li.appendChild(wrap);
+    if (p.summary) li.appendChild(el("p", "row-desc", p.summary));
 
     list.appendChild(li);
   });
@@ -119,36 +123,7 @@ function setupNavHighlight() {
   sections.forEach((s) => s && observer.observe(s));
 }
 
-/* Manual light/dark toggle — defaults to system preference, then remembers your choice */
-function setupThemeToggle() {
-  const button = document.getElementById("theme-toggle");
-  if (!button) return;
-
-  function currentTheme() {
-    return (
-      document.documentElement.getAttribute("data-theme") ||
-      (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
-    );
-  }
-
-  function applyTheme(theme) {
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-    button.setAttribute(
-      "aria-label",
-      theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
-    );
-  }
-
-  applyTheme(currentTheme());
-
-  button.addEventListener("click", () => {
-    applyTheme(currentTheme() === "dark" ? "light" : "dark");
-  });
-}
-
 document.getElementById("year").textContent = new Date().getFullYear();
 renderProjects();
 renderPosts();
 setupNavHighlight();
-setupThemeToggle();
