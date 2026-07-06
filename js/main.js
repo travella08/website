@@ -66,6 +66,55 @@ function renderProjects() {
   });
 }
 
+function renderNotes() {
+  const list = document.getElementById("note-list");
+  if (!list) return;
+
+  if (!notes.length) {
+    list.appendChild(el("li", "list-empty", "Nothing here yet — notes coming soon."));
+    return;
+  }
+
+  // newest first
+  const sorted = [...notes].sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+
+  sorted.forEach((n) => {
+    const li = el("li", "stack-item");
+
+    const head = el("div", "stack-head");
+    const h3 = el("h3");
+    const a = el("a", null, n.title);
+    a.href = n.url;
+    a.target = "_blank";
+    a.rel = "noopener";
+    h3.appendChild(a);
+    head.appendChild(h3);
+
+    const meta = el("span", "stack-meta");
+    if (n.course) {
+      const tag = el("span", "tag", n.course);
+      meta.appendChild(tag);
+      meta.appendChild(document.createTextNode(" "));
+    }
+    if (n.date) {
+      const time = document.createElement("time");
+      time.dateTime = n.date;
+      time.textContent = new Date(n.date + "T00:00:00").toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      });
+      meta.appendChild(time);
+    }
+    head.appendChild(meta);
+    li.appendChild(head);
+
+    if (n.description) li.appendChild(el("p", "stack-desc", n.description));
+
+    list.appendChild(li);
+  });
+}
+
 function renderPosts() {
   const list = document.getElementById("post-list");
   if (!list) return;
@@ -162,6 +211,7 @@ function setupThemeToggle() {
 
 document.getElementById("year").textContent = new Date().getFullYear();
 renderProjects();
+renderNotes();
 renderPosts();
 setupNavHighlight();
 setupThemeToggle();

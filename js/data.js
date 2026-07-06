@@ -24,6 +24,16 @@ const projects = [];
 // },
 const experiences = [];
 
+// Drop a PDF into the notes/ folder, then add an entry here, e.g.:
+// {
+//   title: "Group Theory — Lecture Notes",
+//   course: "MATH 417",       // or any label, e.g. "Misc"
+//   date: "2026-09-12",       // YYYY-MM-DD, used for sorting
+//   description: "Optional one-line summary.",
+//   url: "notes/math417-group-theory.pdf",
+// },
+const notes = [];
+
 // Add a writing entry here, e.g.:
 // {
 //   date: "2026-07-05", // YYYY-MM-DD
