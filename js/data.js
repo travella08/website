@@ -15,4 +15,21 @@
 // },
 const projects = [];
 
+// Add an experience entry here, e.g.:
+// {
+//   role: "Software Engineering Intern",
+//   org: "Company Name",
+//   dates: "May 2026 – Aug 2026",
+//   description: "One or two sentences on what you did.",
+// },
+const experiences = [];
+
+// Add a writing entry here, e.g.:
+// {
+//   date: "2026-07-05", // YYYY-MM-DD
+//   title: "My first post",
+//   summary: "Optional one-line teaser.",
+//   readTime: "4 min", // optional, shown in the alt layout
+//   url: "posts/my-first-post.html",
+// },
 const posts = [];

@@ -13,20 +13,36 @@ function el(tag, className, text) {
   return node;
 }
 
+const EXT_ICON =
+  '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M14 3a1 1 0 1 0 0 2h3.59l-8.3 8.3a1 1 0 1 0 1.42 1.4L19 6.41V10a1 1 0 1 0 2 0V4a1 1 0 0 0-1-1h-6zM5 7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4a1 1 0 1 0-2 0v4H5V9h4a1 1 0 0 0 0-2H5z"/></svg>';
+
 function renderProjects() {
   const list = document.getElementById("project-list");
   if (!list) return;
 
   if (!projects.length) {
-    list.appendChild(el("li", "posts-empty", "Nothing here yet."));
+    list.appendChild(el("li", "list-empty", "Nothing here yet — projects coming soon."));
     return;
   }
 
   projects.forEach((p) => {
     const li = el("li", "card");
+    const mainLink = p.links && p.links[0];
+
+    const top = el("div", "card-top");
+    top.appendChild(el("span", "card-tile", p.title.charAt(0).toUpperCase()));
+    if (mainLink) {
+      const ext = el("a", "card-ext");
+      ext.href = mainLink.url;
+      ext.target = "_blank";
+      ext.rel = "noopener";
+      ext.setAttribute("aria-label", `Open ${p.title}`);
+      ext.innerHTML = EXT_ICON;
+      top.appendChild(ext);
+    }
+    li.appendChild(top);
 
     const h3 = el("h3");
-    const mainLink = p.links && p.links[0];
     if (mainLink) {
       const a = el("a", null, p.title);
       a.href = mainLink.url;
@@ -40,22 +56,36 @@ function renderProjects() {
 
     li.appendChild(el("p", null, p.description));
 
-    const meta = el("div", "card-meta");
-    (p.tags || []).forEach((t) => meta.appendChild(el("span", "tag", t)));
-
-    if (p.links && p.links.length) {
-      const links = el("div", "card-links");
-      p.links.forEach((l) => {
-        const a = el("a", null, l.label);
-        a.href = l.url;
-        a.target = "_blank";
-        a.rel = "noopener";
-        links.appendChild(a);
-      });
-      meta.appendChild(links);
+    if (p.tags && p.tags.length) {
+      const tags = el("div", "card-tags");
+      p.tags.forEach((t) => tags.appendChild(el("span", "tag", t)));
+      li.appendChild(tags);
     }
 
-    li.appendChild(meta);
+    list.appendChild(li);
+  });
+}
+
+function renderExperience() {
+  const list = document.getElementById("experience-list");
+  if (!list) return;
+
+  if (!experiences.length) {
+    list.appendChild(el("li", "list-empty", "Nothing here yet."));
+    return;
+  }
+
+  experiences.forEach((x) => {
+    const li = el("li", "stack-item");
+
+    const head = el("div", "stack-head");
+    head.appendChild(el("h3", null, x.role));
+    if (x.dates) head.appendChild(el("span", "stack-meta", x.dates));
+    li.appendChild(head);
+
+    if (x.org) li.appendChild(el("p", "stack-sub", x.org));
+    if (x.description) li.appendChild(el("p", "stack-desc", x.description));
+
     list.appendChild(li);
   });
 }
@@ -65,7 +95,7 @@ function renderPosts() {
   if (!list) return;
 
   if (!posts.length) {
-    list.appendChild(el("li", "posts-empty", "Nothing here yet — first post coming soon."));
+    list.appendChild(el("li", "list-empty", "Nothing here yet — first post coming soon."));
     return;
   }
 
@@ -73,23 +103,27 @@ function renderPosts() {
   const sorted = [...posts].sort((a, b) => b.date.localeCompare(a.date));
 
   sorted.forEach((p) => {
-    const li = el("li", "post");
+    const li = el("li", "stack-item");
+
+    const head = el("div", "stack-head");
+    const h3 = el("h3");
+    const a = el("a", null, p.title);
+    a.href = p.url;
+    h3.appendChild(a);
+    head.appendChild(h3);
 
     const time = document.createElement("time");
+    time.className = "stack-meta";
     time.dateTime = p.date;
     time.textContent = new Date(p.date + "T00:00:00").toLocaleDateString("en-US", {
       year: "numeric",
       month: "short",
       day: "numeric",
     });
-    li.appendChild(time);
+    head.appendChild(time);
+    li.appendChild(head);
 
-    const wrap = el("div");
-    const a = el("a", "post-title", p.title);
-    a.href = p.url;
-    wrap.appendChild(a);
-    if (p.summary) wrap.appendChild(el("span", "post-summary", p.summary));
-    li.appendChild(wrap);
+    if (p.summary) li.appendChild(el("p", "stack-desc", p.summary));
 
     list.appendChild(li);
   });
@@ -149,6 +183,7 @@ function setupThemeToggle() {
 
 document.getElementById("year").textContent = new Date().getFullYear();
 renderProjects();
+renderExperience();
 renderPosts();
 setupNavHighlight();
 setupThemeToggle();

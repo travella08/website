@@ -9,7 +9,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Libre+Franklin:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css">
 
@@ -27,70 +27,182 @@
 
   <header class="site-header">
     <nav class="nav" aria-label="Main">
-      <a class="nav-name" href="#top">Tanav Ravella</a>
+      <a class="nav-name" href="#home">Tanav Ravella</a>
       <div class="nav-links">
+        <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
         <a href="#writing">Writing</a>
+        <a href="#contact">Contact</a>
       </div>
-      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to light theme">
-        <svg class="icon-sun" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 4a1 1 0 0 1-1-1V1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1zm0 20a1 1 0 0 1-1-1v-2a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1zM4 13H2a1 1 0 1 1 0-2h2a1 1 0 1 1 0 2zm20 0h-2a1 1 0 1 1 0-2h2a1 1 0 1 1 0 2zM5.64 6.64a1 1 0 0 1-.7-.29L3.5 4.9a1 1 0 1 1 1.42-1.42l1.42 1.42a1 1 0 0 1-.7 1.71zm14.02 14.02a1 1 0 0 1-.7-.29l-1.42-1.42a1 1 0 1 1 1.42-1.42l1.42 1.42a1 1 0 0 1-.7 1.71zM4.9 20.5a1 1 0 0 1-.71-1.71l1.42-1.42a1 1 0 1 1 1.42 1.42L5.6 20.21a1 1 0 0 1-.7.29zM18.36 6.64a1 1 0 0 1-.7-1.71l1.42-1.42A1 1 0 1 1 20.5 4.9l-1.42 1.42a1 1 0 0 1-.72.32zM12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/></svg>
-        <svg class="icon-moon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12.1 2a1 1 0 0 1 .82 1.6A8 8 0 0 0 12 14a8 8 0 0 0 7.86-6.53 1 1 0 0 1 1.72-.4A10 10 0 1 1 9.4 2.4a1 1 0 0 1 .7-.4c.34-.03.66.02 1 0z"/></svg>
-      </button>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to light theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 4a1 1 0 0 1-1-1V1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1zm0 20a1 1 0 0 1-1-1v-2a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1zM4 13H2a1 1 0 1 1 0-2h2a1 1 0 1 1 0 2zm20 0h-2a1 1 0 1 1 0-2h2a1 1 0 1 1 0 2zM5.64 6.64a1 1 0 0 1-.7-.29L3.5 4.9a1 1 0 1 1 1.42-1.42l1.42 1.42a1 1 0 0 1-.7 1.71zm14.02 14.02a1 1 0 0 1-.7-.29l-1.42-1.42a1 1 0 1 1 1.42-1.42l1.42 1.42a1 1 0 0 1-.7 1.71zM4.9 20.5a1 1 0 0 1-.71-1.71l1.42-1.42a1 1 0 1 1 1.42 1.42L5.6 20.21a1 1 0 0 1-.7.29zM18.36 6.64a1 1 0 0 1-.7-1.71l1.42-1.42A1 1 0 1 1 20.5 4.9l-1.42 1.42a1 1 0 0 1-.72.32zM12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12.1 2a1 1 0 0 1 .82 1.6A8 8 0 0 0 12 14a8 8 0 0 0 7.86-6.53 1 1 0 0 1 1.72-.4A10 10 0 1 1 9.4 2.4a1 1 0 0 1 .7-.4c.34-.03.66.02 1 0z"/></svg>
+        </button>
+        <a class="btn btn-dark btn-resume" href="resume.pdf" target="_blank" rel="noopener">
+          Resume
+          <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M12 16a1 1 0 0 1-.7-.29l-5-5a1 1 0 1 1 1.4-1.42L11 12.59V3a1 1 0 1 1 2 0v9.59l3.3-3.3a1 1 0 1 1 1.4 1.42l-5 5A1 1 0 0 1 12 16zm8 5H4a1 1 0 1 1 0-2h16a1 1 0 1 1 0 2z"/></svg>
+        </a>
+      </div>
     </nav>
   </header>
 
-  <main id="top">
+  <main>
 
-    <!-- ============ ABOUT ============ -->
-    <section id="about" class="section hero">
-      <div class="hero-inner">
-        <!-- Replace with your photo: put an image at img/avatar.jpg and uncomment.
-        <img class="avatar" src="img/avatar.jpg" alt="Portrait of Your Name" width="112" height="112">
-        -->
+    <!-- ============ HERO / HOME ============ -->
+    <section id="home" class="hero">
+      <div class="hero-grid">
         <div class="hero-text">
-          <h1>Tanav Ravella</h1>
-          <p class="tagline">Math + CS @ UIUC</p>
+          <span class="badge"><span class="badge-dot" aria-hidden="true"></span> Math + CS Student</span>
 
-          <p class="bio">
-            Hi! I'm a student at the University of Illinois Urbana-Champaign
-            studying Math and Computer Science. I'm interested in building
-            useful things and writing about what I learn along the way.
+          <h1>
+            Hi, I&rsquo;m <span class="accent">Tanav Ravella</span><br>
+            I like building useful things.
+          </h1>
+
+          <p class="hero-bio">
+            I'm a Math and Computer Science student at the University of Illinois
+            Urbana-Champaign who loves building clean, efficient and user-friendly
+            applications.
           </p>
-          <p class="bio">
-            The best way to reach me is <a href="mailto:tanavr2@illinois.edu">tanavr2@illinois.edu</a>.
-          </p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#projects">
+              View My Work
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M13.3 5.3a1 1 0 0 1 1.4 0l6 6a1 1 0 0 1 0 1.4l-6 6a1 1 0 0 1-1.4-1.4L17.59 13H4a1 1 0 1 1 0-2h13.59l-4.3-4.3a1 1 0 0 1 0-1.4z"/></svg>
+            </a>
+            <a class="btn btn-outline" href="mailto:tanavr2@illinois.edu">
+              Get In Touch
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2v.35l8 5.03 8-5.03V6H4zm16 2.71-7.47 4.7a1 1 0 0 1-1.06 0L4 8.7V18h16V8.71z"/></svg>
+            </a>
+          </div>
 
           <ul class="social" aria-label="Profiles">
             <li>
-              <a href="https://github.com/travella08" target="_blank" rel="noopener">
-                <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-                GitHub
+              <a href="https://github.com/travella08" target="_blank" rel="noopener" aria-label="GitHub">
+                <svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
               </a>
             </li>
             <li>
-              <a href="https://www.linkedin.com/in/tanav-ravella-240072304/" target="_blank" rel="noopener">
-                <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M13.6 0H2.4A2.4 2.4 0 0 0 0 2.4v11.2A2.4 2.4 0 0 0 2.4 16h11.2a2.4 2.4 0 0 0 2.4-2.4V2.4A2.4 2.4 0 0 0 13.6 0zM4.98 13.63H2.61V6h2.37v7.63zM3.79 4.96a1.37 1.37 0 1 1 0-2.75 1.37 1.37 0 0 1 0 2.75zm9.84 8.67h-2.37V9.92c0-.89-.02-2.03-1.24-2.03-1.24 0-1.43.97-1.43 1.96v3.78H6.22V6h2.28v1.04h.03c.32-.6 1.09-1.24 2.25-1.24 2.4 0 2.85 1.58 2.85 3.64v4.19z"/></svg>
-                LinkedIn
+              <a href="https://www.linkedin.com/in/tanav-ravella-240072304/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M13.6 0H2.4A2.4 2.4 0 0 0 0 2.4v11.2A2.4 2.4 0 0 0 2.4 16h11.2a2.4 2.4 0 0 0 2.4-2.4V2.4A2.4 2.4 0 0 0 13.6 0zM4.98 13.63H2.61V6h2.37v7.63zM3.79 4.96a1.37 1.37 0 1 1 0-2.75 1.37 1.37 0 0 1 0 2.75zm9.84 8.67h-2.37V9.92c0-.89-.02-2.03-1.24-2.03-1.24 0-1.43.97-1.43 1.96v3.78H6.22V6h2.28v1.04h.03c.32-.6 1.09-1.24 2.25-1.24 2.4 0 2.85 1.58 2.85 3.64v4.19z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:tanavr2@illinois.edu" aria-label="Email">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2v.35l8 5.03 8-5.03V6H4zm16 2.71-7.47 4.7a1 1 0 0 1-1.06 0L4 8.7V18h16V8.71z"/></svg>
               </a>
             </li>
           </ul>
+        </div>
+
+        <div class="hero-photo" aria-hidden="false">
+          <div class="photo-circle">
+            <!-- Drop your photo at img/headshot.jpg and it will replace the placeholder -->
+            <img src="img/headshot.jpg" alt="Portrait of Tanav Ravella"
+                 onerror="this.style.display='none'; this.parentElement.classList.add('photo-empty');">
+            <svg class="photo-placeholder" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-5 0-9 2.5-9 6v2h18v-2c0-3.5-4-6-9-6z"/></svg>
+          </div>
+          <div class="photo-dots" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="section">
+      <div class="about-card">
+        <div class="about-col about-intro">
+          <div class="icon-tile" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-4 0-7 2-7 4.5V20h14v-1.5c0-2.5-3-4.5-7-4.5z"/></svg>
+          </div>
+          <h2>About Me</h2>
+          <p>
+            I'm passionate about solving problems and building software that makes
+            an impact. My interests lie in math, software development, and learning
+            in public.
+          </p>
+          <a class="text-link" href="#contact">Learn more about me
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M13.3 5.3a1 1 0 0 1 1.4 0l6 6a1 1 0 0 1 0 1.4l-6 6a1 1 0 0 1-1.4-1.4L17.59 13H4a1 1 0 1 1 0-2h13.59l-4.3-4.3a1 1 0 0 1 0-1.4z"/></svg>
+          </a>
+        </div>
+
+        <div class="about-col">
+          <div class="icon-tile" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 3 1 8l11 5 9-4.09V15h2V8L12 3zM5 12.18V16c0 1.66 3.13 3 7 3s7-1.34 7-3v-3.82l-7 3.18-7-3.18z"/></svg>
+          </div>
+          <h3>Education</h3>
+          <p>BS in Math + Computer Science<br>2025 &ndash; 2029<br>University of Illinois Urbana-Champaign</p>
+        </div>
+
+        <div class="about-col">
+          <div class="icon-tile" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M8.7 15.9 4.8 12l3.9-3.9a1 1 0 0 0-1.4-1.4l-4.6 4.6a1 1 0 0 0 0 1.4l4.6 4.6a1 1 0 0 0 1.4-1.4zm6.6 0 3.9-3.9-3.9-3.9a1 1 0 0 1 1.4-1.4l4.6 4.6a1 1 0 0 1 0 1.4l-4.6 4.6a1 1 0 0 1-1.4-1.4z"/></svg>
+          </div>
+          <h3>Skills</h3>
+          <p>Python, Java, JavaScript,<br>HTML, CSS,<br>Git</p>
+        </div>
+
+        <div class="about-col">
+          <div class="icon-tile" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M19 4h-2V3a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v1H5a2 2 0 0 0-2 2v2c0 2.4 1.7 4.4 4 4.9A5 5 0 0 0 11 16v2H8a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2h-3v-2a5 5 0 0 0 4-3.1c2.3-.5 4-2.5 4-4.9V6a2 2 0 0 0-2-2zM5 8V6h2v4.5A3 3 0 0 1 5 8zm14 0a3 3 0 0 1-2 2.5V6h2v2z"/></svg>
+          </div>
+          <h3>Interests</h3>
+          <p>Math, Web Dev,<br>Open Source,<br>Writing</p>
         </div>
       </div>
     </section>
 
     <!-- ============ PROJECTS ============ -->
     <section id="projects" class="section">
-      <h2>Projects</h2>
-      <p class="section-note">A few things I've built. Full list on <a href="https://github.com/travella08" target="_blank" rel="noopener">GitHub</a>.</p>
-      <ul id="project-list" class="cards" aria-live="polite"></ul>
+      <div class="section-head">
+        <h2>Projects</h2>
+        <a class="text-link" href="https://github.com/travella08" target="_blank" rel="noopener">View all projects
+          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M13.3 5.3a1 1 0 0 1 1.4 0l6 6a1 1 0 0 1 0 1.4l-6 6a1 1 0 0 1-1.4-1.4L17.59 13H4a1 1 0 1 1 0-2h13.59l-4.3-4.3a1 1 0 0 1 0-1.4z"/></svg>
+        </a>
+      </div>
+      <ul id="project-list" class="card-grid" aria-live="polite"></ul>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section id="experience" class="section">
+      <div class="section-head">
+        <h2>Experience</h2>
+      </div>
+      <ul id="experience-list" class="stack-list" aria-live="polite"></ul>
     </section>
 
     <!-- ============ WRITING ============ -->
     <section id="writing" class="section">
-      <h2>Writing</h2>
-      <p class="section-note">Occasional writing on things I'm learning.</p>
-      <ul id="post-list" class="posts" aria-live="polite"></ul>
+      <div class="section-head">
+        <h2>Writing</h2>
+      </div>
+      <ul id="post-list" class="stack-list" aria-live="polite"></ul>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="section section-contact">
+      <div class="contact-card">
+        <h2>Get In Touch</h2>
+        <p>Whether you have a question, an idea, or just want to say hi &mdash; my inbox is always open.</p>
+        <a class="btn btn-primary" href="mailto:tanavr2@illinois.edu">
+          Say Hello
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2v.35l8 5.03 8-5.03V6H4zm16 2.71-7.47 4.7a1 1 0 0 1-1.06 0L4 8.7V18h16V8.71z"/></svg>
+        </a>
+        <ul class="social social-center" aria-label="Profiles">
+          <li>
+            <a href="https://github.com/travella08" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/tanav-ravella-240072304/" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M13.6 0H2.4A2.4 2.4 0 0 0 0 2.4v11.2A2.4 2.4 0 0 0 2.4 16h11.2a2.4 2.4 0 0 0 2.4-2.4V2.4A2.4 2.4 0 0 0 13.6 0zM4.98 13.63H2.61V6h2.37v7.63zM3.79 4.96a1.37 1.37 0 1 1 0-2.75 1.37 1.37 0 0 1 0 2.75zm9.84 8.67h-2.37V9.92c0-.89-.02-2.03-1.24-2.03-1.24 0-1.43.97-1.43 1.96v3.78H6.22V6h2.28v1.04h.03c.32-.6 1.09-1.24 2.25-1.24 2.4 0 2.85 1.58 2.85 3.64v4.19z"/></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
     </section>
 
   </main>
