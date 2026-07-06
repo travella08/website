@@ -1,5 +1,5 @@
 /* ============================================================
-   All your content lives here. To add a project or blog post,
+   All your content lives here. To add a project or writing post,
    just add an object to the arrays below — no HTML editing needed.
    Shared by both the main site (index.html) and the alternate
    layout (alt/index.html).
